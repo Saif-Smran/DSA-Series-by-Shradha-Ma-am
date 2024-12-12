@@ -6,7 +6,7 @@ void helper(vector<vector<int>> &m, int r, int c, string path, vector<string> &a
 {
     int n = m.size();
     // Base Case
-    if (r < 0 || c < 0 || r >= n || c >= n || m[r][c] == 0)
+    if (r < 0 || c < 0 || r >= n || c >= n || m[r][c] == 0 || m[r][c] == -1)
     {
         return;
     }
@@ -17,7 +17,7 @@ void helper(vector<vector<int>> &m, int r, int c, string path, vector<string> &a
         return;
     }
 
-    m[r][c] = 0;
+    m[r][c] = -1; // Mark Visited
     // Recursive Case
     helper(m, r + 1, c, path + "D", ans); // Down
     helper(m, r, c - 1, path + "L", ans); // Left
